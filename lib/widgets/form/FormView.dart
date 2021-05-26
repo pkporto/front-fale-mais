@@ -16,7 +16,6 @@ class _FormViewState extends State<FormView> {
     final calculateStore = Provider.of<Calculate>(context);
 
     return Container(
-      width: 1000,
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.center,
         mainAxisAlignment: MainAxisAlignment.center,

@@ -15,11 +15,17 @@ class NavigationBar extends StatelessWidget {
           Row(
             mainAxisSize: MainAxisSize.min,
             children: <Widget>[
-              _NavBarItem('Home'),
+              InkWell(child: _NavBarItem('Home'),
+              onTap: (){
+                Navigator.pushNamed(context, '/homepage');
+              },),
               SizedBox(
                 width: 60,
               ),
-              _NavBarItem('SignIn'),
+              InkWell(child: _NavBarItem('SignIn'),
+                onTap: (){
+              Navigator.pushNamed(context, '/login');
+              },),
               SizedBox(
                 width: 60,
               ),

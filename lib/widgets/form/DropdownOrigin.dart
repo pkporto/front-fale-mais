@@ -16,10 +16,11 @@ class _DropdownOriginState extends State<DropdownOrigin> {
   List listItem = [
     "011", "016", "017", "018"
   ];
+  var calculateStore;
 
   @override
   Widget build(BuildContext context) {
-    final calculateStore = Provider.of<Calculate>(context);
+    calculateStore = Provider.of<Calculate>(context);
 
     return Form(
       child: Row(
@@ -140,8 +141,8 @@ class _DropdownOriginState extends State<DropdownOrigin> {
   }
 
 
-  void validarCampos(String origin, String destiny, int time, String Plan) async {
-    if (time == null  ) {
+  void validarCampos(String origin, String destiny, int time, String plan) async {
+    if (minutesController.text == '' ) {
       showAlertDialog1(context, 'Preencha os minutos.');
     } else {
       if (origin == destiny) {
@@ -155,7 +156,7 @@ class _DropdownOriginState extends State<DropdownOrigin> {
           //     MaterialPageRoute(builder: (BuildContext context) => MainView()),
           //         (Route<dynamic> route) => false);
 
-          // calculateStore.getPrice(int.parse(origin),int.parse(dropdownValue2), int.parse(minutesController.text), dropdownValue3);
+          calculateStore.getPrice(int.parse(origin),int.parse(dropdownValue2), time, plan);
         // }
       }
     }
