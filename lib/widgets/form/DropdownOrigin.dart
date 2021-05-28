@@ -23,96 +23,100 @@ class _DropdownOriginState extends State<DropdownOrigin> {
     calculateStore = Provider.of<Calculate>(context);
 
     return Form(
-      child: Row(
-        children: [
-          DropdownButton<String>(
-            value: dropdownValue,
-            icon: const Icon(Icons.arrow_downward),
-            iconSize: 24,
-            elevation: 16,
-            style: const TextStyle(color: Color.fromARGB(255, 31, 229, 146),),
-            underline: Container(
-              height: 2,
-              color: Color.fromARGB(255, 31, 229, 146),
+      child: Column(
+        children: [ Row(
+          children: [
+            DropdownButton<String>(
+              value: dropdownValue,
+              icon: const Icon(Icons.arrow_downward),
+              iconSize: 24,
+              elevation: 16,
+              style: const TextStyle(color: Color.fromARGB(255, 31, 229, 146),),
+              underline: Container(
+                height: 2,
+                color: Color.fromARGB(255, 31, 229, 146),
+              ),
+              onChanged: (String? newValue) {
+                setState(() {
+                  dropdownValue = newValue!;
+                });
+              },
+              items: <String>['011', '016', '017', '018']
+                  .map<DropdownMenuItem<String>>((String value) {
+                return DropdownMenuItem<String>(
+                  value: value,
+                  child: Text(value),
+                );
+              }).toList(),
             ),
-            onChanged: (String? newValue) {
-              setState(() {
-                dropdownValue = newValue!;
-              });
-            },
-            items: <String>['011', '016', '017', '018']
-                .map<DropdownMenuItem<String>>((String value) {
-              return DropdownMenuItem<String>(
-                value: value,
-                child: Text(value),
-              );
-            }).toList(),
-          ),
-          SizedBox(width: 20,),
+            SizedBox(width: 20,),
 
-          DropdownButton<String>(
-            value: dropdownValue2,
-            icon: const Icon(Icons.arrow_downward),
-            iconSize: 24,
-            elevation: 16,
-            style: const TextStyle(color: Color.fromARGB(255, 31, 229, 146),),
-            underline: Container(
-              height: 2,
-              color: Color.fromARGB(255, 31, 229, 146),
+            DropdownButton<String>(
+              value: dropdownValue2,
+              icon: const Icon(Icons.arrow_downward),
+              iconSize: 24,
+              elevation: 16,
+              style: const TextStyle(color: Color.fromARGB(255, 31, 229, 146),),
+              underline: Container(
+                height: 2,
+                color: Color.fromARGB(255, 31, 229, 146),
+              ),
+              onChanged: (String? newValue) {
+                setState(() {
+                  dropdownValue2 = newValue!;
+                });
+              },
+              items: <String>['011', '016', '017', '018']
+                  .map<DropdownMenuItem<String>>((String value) {
+                return DropdownMenuItem<String>(
+                  value: value,
+                  child: Text(value),
+                );
+              }).toList(),
             ),
-            onChanged: (String? newValue) {
-              setState(() {
-                dropdownValue2 = newValue!;
-              });
-            },
-            items: <String>['011', '016', '017', '018']
-                .map<DropdownMenuItem<String>>((String value) {
-              return DropdownMenuItem<String>(
-                value: value,
-                child: Text(value),
-              );
-            }).toList(),
-          ),
-          SizedBox(width: 20,),
+            SizedBox(width: 20,),
 
-          DropdownButton<String>(
-            value: dropdownValue3,
-            icon: const Icon(Icons.arrow_downward),
-            iconSize: 24,
-            elevation: 16,
-            style: const TextStyle(color: Color.fromARGB(255, 31, 229, 146),),
-            underline: Container(
-              height: 2,
-              color: Color.fromARGB(255, 31, 229, 146),
+            DropdownButton<String>(
+              value: dropdownValue3,
+              icon: const Icon(Icons.arrow_downward),
+              iconSize: 24,
+              elevation: 16,
+              style: const TextStyle(color: Color.fromARGB(255, 31, 229, 146),),
+              underline: Container(
+                height: 2,
+                color: Color.fromARGB(255, 31, 229, 146),
+              ),
+              onChanged: (String? newValue) {
+                setState(() {
+                  dropdownValue3 = newValue!;
+                });
+              },
+              items: <String>['Fale Mais 30', 'Fale Mais 60','Fale Mais 120']
+                  .map<DropdownMenuItem<String>>((String value) {
+                return DropdownMenuItem<String>(
+                  value: value,
+                  child: Text(value),
+                );
+              }).toList(),
             ),
-            onChanged: (String? newValue) {
-              setState(() {
-                dropdownValue3 = newValue!;
-              });
-            },
-            items: <String>['Fale Mais 30', 'Fale Mais 60','Fale Mais 120']
-                .map<DropdownMenuItem<String>>((String value) {
-              return DropdownMenuItem<String>(
-                value: value,
-                child: Text(value),
-              );
-            }).toList(),
-          ),
-          SizedBox(width: 10.0,),
-          Flexible(
-            child: TextFormField(
-              
-              controller: minutesController,
-              inputFormatters: [WhitelistingTextInputFormatter.digitsOnly],
-              decoration: InputDecoration(
-                labelText: 'Quantos minutos?',
-                labelStyle: TextStyle(
-                    color: Colors.black, fontWeight: FontWeight.w200),
-                border: OutlineInputBorder(),
+            SizedBox(width: 10.0,),
+            Flexible(
+              child: TextFormField(
+
+                controller: minutesController,
+                inputFormatters: [WhitelistingTextInputFormatter.digitsOnly],
+                decoration: InputDecoration(
+                  labelText: 'Quantos minutos?',
+                  labelStyle: TextStyle(
+                      color: Colors.black, fontWeight: FontWeight.w200),
+                  border: OutlineInputBorder(),
+                ),
               ),
             ),
-          ),
-          SizedBox(width: 10.0,),
+            SizedBox(width: 10.0,),
+
+          ],
+        ),
 
           InkWell(
             onTap: (){
@@ -134,9 +138,7 @@ class _DropdownOriginState extends State<DropdownOrigin> {
                   color: Color.fromARGB(255, 31, 229, 146),
                   borderRadius: BorderRadius.circular(5)),
             ),
-          )
-        ],
-      ),
+          )],),
     );
   }
 
