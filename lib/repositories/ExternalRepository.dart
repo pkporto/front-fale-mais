@@ -33,7 +33,7 @@ class ExternalRepository {
   Future<String> calculate(int origin, int destiny,int time, String plan ) async {
     print('entrou no calculate');
 
-    var resposta = await https
+    var resposta = await http
         .get(Uri.parse('https://api-fale-mais.herokuapp.com/calculate' + '?origin=${origin.toString()}&destiny=${destiny.toString()}&time=${time.toString()}&plan=${plan}') );
 
     if (resposta.statusCode == 200 || resposta.statusCode == 201  ) {
