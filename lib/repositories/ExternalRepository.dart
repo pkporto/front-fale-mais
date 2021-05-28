@@ -1,6 +1,5 @@
 import 'dart:convert';
 import 'package:flutter/material.dart';
-import 'package:front_fale/RoutesAPI/RoutesAPI.dart';
 import 'package:front_fale/models/ResponseAPI.dart';
 
 // import 'package:sigveiculos_app/models/CarModel.dart';

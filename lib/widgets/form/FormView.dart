@@ -22,10 +22,10 @@ class _FormViewState extends State<FormView> {
         children: <Widget>[
           Text(
             'Escolha o seu plano fale mais e descubra as vantagens de assina-los!',
-            style: TextStyle(fontSize: 21, height: 1.7),
+            style: TextStyle(fontSize: 36, height: 1.7),
           ),
           SizedBox(
-            height: 30,
+            height: 60,
           ),
 
           DropdownOrigin(),

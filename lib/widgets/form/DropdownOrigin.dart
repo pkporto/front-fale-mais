@@ -25,7 +25,9 @@ class _DropdownOriginState extends State<DropdownOrigin> {
     return Form(
       child: Column(
         children: [ Row(
+          mainAxisAlignment: MainAxisAlignment.center,
           children: [
+            Text('Selecione a origem:  '),
             DropdownButton<String>(
               value: dropdownValue,
               icon: const Icon(Icons.arrow_downward),
@@ -50,7 +52,7 @@ class _DropdownOriginState extends State<DropdownOrigin> {
               }).toList(),
             ),
             SizedBox(width: 20,),
-
+            Text('Selecione o destino:  '),
             DropdownButton<String>(
               value: dropdownValue2,
               icon: const Icon(Icons.arrow_downward),
@@ -75,7 +77,7 @@ class _DropdownOriginState extends State<DropdownOrigin> {
               }).toList(),
             ),
             SizedBox(width: 20,),
-
+            Text('Selecione o plano:  '),
             DropdownButton<String>(
               value: dropdownValue3,
               icon: const Icon(Icons.arrow_downward),
@@ -99,25 +101,31 @@ class _DropdownOriginState extends State<DropdownOrigin> {
                 );
               }).toList(),
             ),
-            SizedBox(width: 10.0,),
-            Flexible(
-              child: TextFormField(
 
-                controller: minutesController,
-                inputFormatters: [WhitelistingTextInputFormatter.digitsOnly],
-                decoration: InputDecoration(
-                  labelText: 'Quantos minutos?',
-                  labelStyle: TextStyle(
-                      color: Colors.black, fontWeight: FontWeight.w200),
-                  border: OutlineInputBorder(),
-                ),
-              ),
-            ),
-            SizedBox(width: 10.0,),
 
           ],
         ),
+          SizedBox(width: 24.0,),
 
+         Padding(
+           padding: const EdgeInsets.fromLTRB(80, 12, 80, 20),
+           child: TextFormField(
+             validator: (value) {
+               if (value!.isEmpty)  {
+                 showAlertDialog1(context, 'A origem e o destino precdasser diferentes.');
+               }
+             },
+              controller: minutesController,
+              inputFormatters: [WhitelistingTextInputFormatter.digitsOnly],
+              decoration: InputDecoration(
+                labelText: 'Quantos minutos?',
+                labelStyle: TextStyle(
+                    color: Colors.black, fontWeight: FontWeight.w200),
+                border: OutlineInputBorder(),
+              ),
+            ),
+         ),
+          SizedBox(width: 24.0,),
           InkWell(
             onTap: (){
 
@@ -150,16 +158,9 @@ class _DropdownOriginState extends State<DropdownOrigin> {
       if (origin == destiny) {
         showAlertDialog1(context, 'A origem e o destino precisam ser diferentes.');
       } else {
-        // _controllerEmail.clear();
-        //  _controllerSenha.clear();
-  print('dsasdasd');
-        // if (await _repository.logar(email.trim(), senha.trim())) {
-          // Navigator.of(context).pushAndRemoveUntil(
-          //     MaterialPageRoute(builder: (BuildContext context) => MainView()),
-          //         (Route<dynamic> route) => false);
 
           calculateStore.getPrice(int.parse(origin),int.parse(dropdownValue2), time, plan);
-        // }
+
       }
     }
   }
