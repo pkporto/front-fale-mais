@@ -13,21 +13,17 @@ import 'package:front_fale/services/SecureStorage.dart';
 class ExternalRepository {
   final SecureStorage secureStorage = SecureStorage();
 
-  // Future logar(String email, String senha) async {
-  //   var resposta = await http
-  //       .post(RotasAPI.post_login, body: {"email": email, "senha": senha});
-  //   if (resposta.statusCode == 200) {
-  //     var json = jsonDecode(resposta.body);
-  //     RespostaAPI respostaAPI = RespostaAPI.fromJson(json);
-  //
-  //     secureStorage.writeData("token", respostaAPI.dados);
-  //
-  //     return true;
-  //   }
-  //   return 'true';
-  // }
-  //
-
+  Future logar(String email, String senha) async {
+    var resposta = await http.post(Uri.parse('https://api-fale-mais.herokuapp.com/signin'),
+        body: {"email": email, "password": senha});
+    print(resposta.statusCode);
+    if (resposta.statusCode == 200) {
+      print(resposta);
+      return true;
+    } else {
+      return false;
+    }
+  }
 
   Future<String> calculate(int origin, int destiny,int time, String plan ) async {
     print('entrou no calculate');

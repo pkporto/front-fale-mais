@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:front_fale/repositories/ExternalRepository.dart';
 import 'package:front_fale/widgets/navigationBar/NavigationBar.dart';
 
 class LoginView extends StatelessWidget {
@@ -8,6 +9,8 @@ class LoginView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
+
+    ExternalRepository _externalRepository = ExternalRepository();
 
     return Scaffold(
       body:
@@ -61,7 +64,9 @@ class LoginView extends StatelessWidget {
                         child: RaisedButton(
                             child: Text("Entrar"),
                             onPressed: () {
+                              print(emailController.text);
                               // validarCampos(emailController.text, senhaController.text);
+                              _externalRepository.logar(emailController.text, senhaController.text);
                             }),
                       )
                     ]),

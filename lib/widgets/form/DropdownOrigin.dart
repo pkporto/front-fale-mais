@@ -107,23 +107,25 @@ class _DropdownOriginState extends State<DropdownOrigin> {
         ),
           SizedBox(width: 24.0,),
 
-         Padding(
-           padding: const EdgeInsets.fromLTRB(80, 12, 80, 20),
-           child: TextFormField(
-             validator: (value) {
-               if (value!.isEmpty)  {
-                 showAlertDialog1(context, 'A origem e o destino precdasser diferentes.');
-               }
-             },
-              controller: minutesController,
-              inputFormatters: [WhitelistingTextInputFormatter.digitsOnly],
-              decoration: InputDecoration(
-                labelText: 'Quantos minutos?',
-                labelStyle: TextStyle(
-                    color: Colors.black, fontWeight: FontWeight.w200),
-                border: OutlineInputBorder(),
+         Center(
+           child: Padding(
+             padding: const EdgeInsets.fromLTRB(80, 12, 80, 20),
+             child: TextFormField(
+               validator: (value) {
+                 if (value!.isEmpty)  {
+                   showAlertDialog1(context, 'A origem e o destino precdasser diferentes.');
+                 }
+               },
+                controller: minutesController,
+                inputFormatters: [WhitelistingTextInputFormatter.digitsOnly],
+                decoration: InputDecoration(
+                  labelText: 'Quantos minutos?',
+                  labelStyle: TextStyle(
+                      color: Colors.black, fontWeight: FontWeight.w200),
+                  border: OutlineInputBorder(),
+                ),
               ),
-            ),
+           ),
          ),
           SizedBox(width: 24.0,),
           InkWell(
